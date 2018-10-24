@@ -1,0 +1,23 @@
+{
+  "name": "mws-restaurant-stage-1",
+  "version": "1.0.0",
+  "description": "WebApp for reviewing restaurants. Requirement for completion of the Front-End Web Developer Nanodegree, at Udacity",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ricardobossan/Restaurante-Reviews-WebApp.git"
+  },
+  "author": "ricardobossan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ricardobossan/Restaurante-Reviews-WebApp/issues"
+  },
+  "homepage": "https://github.com/ricardobossan/Restaurante-Reviews-WebApp#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jsdoc3": "^2.0.0"
+  }
+}
