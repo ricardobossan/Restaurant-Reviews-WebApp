@@ -1,5 +1,9 @@
 # Project: Restaurant Review App
 
+## Table of Contents
+
+* [How to Run the App](#how)
+
 ## Credits and Acknowledgement
 
 Favicon icon obtained at: ``https://www.favicon-generator.org/``
@@ -10,9 +14,6 @@ I would like to give my sincere thanks to my Udacity's mentor Jai, for the suppo
 
 I Also would like to express my gratitude to the following, for testing my code's usability and bringing me suggestions for improving it: My parents Harley and Deise Bossan, my girlfriend Amanda Schwarz, my friends Sergio Schwarz, Aluisio Maia, Oyama Scharra, Farney Paixao and Rafael Montenegro.
 
-## Table of Contents
-
-* [How to Run the App](#how)
 
 ## How to Run the App
 
