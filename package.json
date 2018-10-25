@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ricardobossan/Restaurante-Reviews-WebApp#readme",
   "devDependencies": {
+    "browser-sync": "^2.26.3",
     "gulp": "^3.9.1",
     "gulp-jsdoc3": "^2.0.0"
   }
