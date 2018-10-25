@@ -17,8 +17,8 @@
 
 I give thanks to the following:
 
- * Udacity, for providing [various resources](14) to help complete this project, as well as all colaborators mentionedon the resources [link](14);
- * jonschlinkert, for table of contents markdown code;
+ * jonschlinkert, for [table of contents markdown code][13];
+ * Udacity, for providing [various resources][14] to help complete this project, as well as all colaborators mentionedon the resources [link][14], specially Mathew Cranford[¹][15][²][16][³][17][⁴][18];
 
 ## How to Run the App
 
@@ -346,17 +346,21 @@ $ gulp jsdoc
 
 ======================================================================================
 
-[1]: https://nodejs.org/en/ "Node.js"
-[2]: https://www.npmjs.com/get-npm "Npm"
-[3]: https://github.com/gulpjs/gulp/blob/v3.9.1/docs/getting-started.md "Gulp"
-[4]: https://www.npmjs.com/package/gulp "Gulp on npm"
-[5]: https://www.npmjs.com/package/browser-sync "Browsersync (Local)"
-[6]: https://jasmine.github.io/pages/getting_started.html "Jasmine"
-[7]: https://www.npmjs.com/package/eslint "Eslint"
-[8]: https://docs.npmjs.com/getting-started/updating-local-packages "Update Npm Packages"
-[9]: https://github.com/ "Github"
-[10]: https://browsersync.io/ "Browsersync (Global)"
-[11]: http://usejsdoc.org/index.html#block-tags "Jsdoc Block Tags"
-[12]: https://www.npmjs.com/package/gulp-jsdoc3 "gulp-jsdoc"
-[13]: https://gist.github.com/jonschlinkert/ac5d8122bfaaa394f896#sub-sub-heading-2
-[14]:
+[1]:https://nodejs.org/en/ "Node.js"
+[2]:https://www.npmjs.com/get-npm "Npm"
+[3]:https://github.com/gulpjs/gulp/blob/v3.9.1/docs/getting-started.md "Gulp"
+[4]:https://www.npmjs.com/package/gulp "Gulp on npm"
+[5]:https://www.npmjs.com/package/browser-sync "Browsersync (Local)"
+[6]:https://jasmine.github.io/pages/getting_started.html "Jasmine"
+[7]:https://www.npmjs.com/package/eslint "Eslint"
+[8]:https://docs.npmjs.com/getting-started/updating-local-packages "Update Npm Packages"
+[9]:https://github.com/ "Github"
+[10]:https://browsersync.io/ "Browsersync (Global)"
+[11]:http://usejsdoc.org/index.html#block-tags "Jsdoc Block Tags"
+[12]:https://www.npmjs.com/package/gulp-jsdoc3 "gulp-jsdoc"
+[13]:https://gist.github.com/jonschlinkert/ac5d8122bfaaa394f896#sub-sub-heading-2/ "TOC in Markdown - jonschlinkert"
+[14]:https://www.diigo.com/outliner/fjslyn/Udacity-Restaurant-Reviews-App-(project-%235)?key=zqiopam1yz "Udacity's resources for this project"
+[15]:https://matthewcranford.com/restaurant-reviews-app-walkthrough-part-1-map-api/
+[16]:https://matthewcranford.com/restaurant-reviews-app-walkthrough-part-2-responsiveness/
+[17]:https://matthewcranford.com/restaurant-reviews-app-walkthrough-part-3-accessibility/
+[18]:https://matthewcranford.com/restaurant-reviews-app-walkthrough-part-4-service-workers/
