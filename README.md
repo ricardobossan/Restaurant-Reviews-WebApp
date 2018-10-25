@@ -344,7 +344,7 @@ Generate documentation for the project on the `doc` directory, on the top level 
 $ gulp jsdoc
 ```
 
-======================================================================================
+<!-- References -->
 
 [1]:https://nodejs.org/en/ "Node.js"
 [2]:https://www.npmjs.com/get-npm "Npm"
