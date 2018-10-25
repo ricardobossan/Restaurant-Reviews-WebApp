@@ -3,6 +3,15 @@
 ## Table of Contents
 
 * [How to Run the App](#how-to-run-the-app)
+	* [If Cloned from the build-basic directory](#if-cloned-from-the-build-basic-directory)
+	* [Building The Project With Node.js and a Building Tool](#Building-The-Project-With-Node.js-and-a-Building-Tool)
+		* [Unit Tests](#Unit-Tests)
+		* [Node.js and Npm](#Node.js-and-Npm)
+		* [Jasmine Configuration](#Jasmine-Configuration)
+		* [Gulp Configuration](#Gulp-Configuration)
+		* [Install Eslint Globally](#Install-Eslint-Globally)
+		* [Generating Documentation With Jsdoc](#Generating-Documentation-With-Jsdoc)
+		* [Running The Build Tool](#Running-The-Build-Tool)
 
 ## Credits and Acknowledgement
 
@@ -19,7 +28,7 @@ I Also would like to express my gratitude to the following, for testing my code'
 
 Instructions for running this project.
 
-## Clone from `build-basic`? Start here
+## If cloned from the build-basic directory
 
 This Section is written with the expectation that you already have installed globally node.js, gulp, browsersync and eslint
 
@@ -102,7 +111,7 @@ The content of the SpecRunner file should be something like this:
 	```
 
 
-#### Node.js and Npm (Node Package Manager)
+#### Node.js and Npm
 
 Install [Node.js][1].
 
@@ -268,7 +277,9 @@ Also, modify the first line of the default task, adding it the task 'sass:watch'
 gulp.task('default', ['sass:watch'], () => {
 ```
 
-#### Install globally the [Eslint][7] linter:
+#### Install Eslint Globally
+
+[Eslint][7]
 
 ```
 $ npm install -g eslint
