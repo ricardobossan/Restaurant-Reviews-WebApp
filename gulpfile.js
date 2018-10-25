@@ -4,7 +4,7 @@
  */
 
 /**
- * @desc Require dependencies.
+ * @desc Requires the task runner's dependencies.
  * @requires
  */
 const gulp = require('gulp');
@@ -12,7 +12,7 @@ const jsdoc = require('gulp-jsdoc3');
 const bSync = require('browser-sync');
 
 /**
- * @desc Reloads the browser.
+ * @desc Reloads the browser, upon saving changes in the watched files.
  */
 gulp.task('default', () => {
 	gulp.watch("js/*.js").on('change', bSync.reload);
