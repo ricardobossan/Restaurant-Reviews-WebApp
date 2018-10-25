@@ -19,7 +19,6 @@ gulp.task('default', () => {
 	gulp.watch("js/*.js").on('change', bSync.reload);
 	gulp.watch("css/*.css").on('change', bSync.reload);
 	gulp.watch("js/*.js", ["jsdoc"]).on('change', bSyncDoc.reload);
-	gulp.watch("css/*.css", ["jsdoc"]).on('change', bSyncDoc.reload);
 
 	bSync.init({
 		server: "./",
