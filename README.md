@@ -12,7 +12,7 @@ I Also would like to express my gratitude to the following, for testing my code'
 
 ## Table of Contents
 
-* [How to Run the App](#how)
+* [How to Run the App](#how-to-run-the-app)
 
 ## How
 
