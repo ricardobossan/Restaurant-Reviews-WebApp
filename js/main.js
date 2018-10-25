@@ -1,18 +1,13 @@
 /**
-* @todo OK create and enter API keys
-* @todo OK configure build tools
-* @todo make the WebApp responsive
-* @todo make it accessible
-* @todo make service workers
-* @todo
-* @todo
-* @todo
-* @todo
-* @todo
-* @todo
-* @todo
-* @todo
-*/
+ * @member Todos
+ * @todo make the WebApp responsive
+ * @todo  mobile first!
+ * @todo make it accessible
+ * @todo make service workers
+ * @todo update my build-basic project acconrdingly
+ * @todo OK create and enter API keys
+ * @todo OK configure build tools
+ */
 
 let restaurants,
 	neighborhoods,

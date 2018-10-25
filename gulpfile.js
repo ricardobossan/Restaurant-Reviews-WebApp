@@ -9,7 +9,8 @@
  */
 const gulp = require('gulp');
 const jsdoc = require('gulp-jsdoc3');
-const bSync = require('browser-sync');
+const bSync = require('browser-sync').create();
+const bSyncDoc = require('browser-sync').create();
 
 /**
  * @desc Reloads the browser, upon saving changes in the watched files.
@@ -17,10 +18,19 @@ const bSync = require('browser-sync');
 gulp.task('default', () => {
 	gulp.watch("js/*.js").on('change', bSync.reload);
 	gulp.watch("css/*.css").on('change', bSync.reload);
+	gulp.watch("js/*.js", ["jsdoc"]).on('change', bSyncDoc.reload);
+	gulp.watch("css/*.css", ["jsdoc"]).on('change', bSyncDoc.reload);
 
 	bSync.init({
 		server: "./",
 		port: 8000,
+		index: "index.html",
+		ui: false
+	});
+
+	bSyncDoc.init({
+		server: "./docs/gen",
+		port: 8080,
 		index: "index.html",
 		ui: false
 	});
