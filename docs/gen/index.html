@@ -93,20 +93,191 @@
 
 
     <section class="readme-section">
-        <article><h1>Mobile Web Specialist Certification Course</h1><hr>
-<h4><em>Three Stage Course Material Project - Restaurant Reviews</em></h4><h2>Project Overview: Stage 1</h2><p>For the <strong>Restaurant Reviews</strong> projects, you will incrementally convert a static webpage to a mobile-ready web application. In <strong>Stage One</strong>, you will take a static design that lacks accessibility and convert the design to be responsive on different sized displays and accessible for screen reader use. You will also add a service worker to begin the process of creating a seamless offline experience for your users.</p>
-<h3>Specification</h3><p>You have been provided the code for a restaurant reviews website. The code has a lot of issues. It’s barely usable on a desktop browser, much less a mobile device. It also doesn’t include any standard accessibility features, and it doesn’t work offline at all. Your job is to update the code to resolve these issues while still maintaining the included functionality. </p>
-<h3>What do I do from here?</h3><ol>
-<li>In this folder, start up a simple HTTP server to serve up the site files on your local computer. Python has some simple tools to do this, and you don't even need to know Python. For most people, it's already installed on your computer. </li>
-</ol>
-<p>In a terminal, check the version of Python you have: <code>python -V</code>. If you have Python 2.x, spin up the server with <code>python -m SimpleHTTPServer 8000</code> (or some other port, if port 8000 is already in use.) For Python 3.x, you can use <code>python3 -m http.server 8000</code>. If you don't have Python installed, navigate to Python's <a href="https://www.python.org/">website</a> to download and install the software.</p>
-<ol start="2">
-<li>With your server running, visit the site: <code>http://localhost:8000</code>, and look around for a bit to see what the current experience looks like.</li>
-<li>Explore the provided code, and start making a plan to implement the required features in three areas: responsive design, accessibility and offline use.</li>
-<li>Write code to implement the updates to get this site on its way to being a mobile-ready website.</li>
-</ol>
-<h2>Leaflet.js and Mapbox:</h2><p>This repository uses <a href="https://leafletjs.com/">leafletjs</a> with <a href="https://www.mapbox.com/">Mapbox</a>. You need to replace <code>&lt;your MAPBOX API KEY HERE&gt;</code> with a token from <a href="https://www.mapbox.com/">Mapbox</a>. Mapbox is free to use, and does not require any payment information. </p>
-<h3>Note about ES6</h3><p>Most of the code in this project has been written to the ES6 JavaScript specification for compatibility with modern web browsers and future proofing JavaScript code. As much as possible, try to maintain use of ES6 in any additional JavaScript you write. </p></article>
+        <article><h1>Project: Restaurant Review App</h1><h2>Table of Contents</h2><ul>
+<li><a href="#how-to-run-the-app">How to Run the App</a><ul>
+<li><a href="#if-cloned-from-the-build-basic-directory">If Cloned from the build-basic directory</a></li>
+<li><a href="#Building-The-Project-With-Node.js-and-a-Building-Tool">Building The Project With Node.js and a Building Tool</a><ul>
+<li><a href="#Unit-Tests">Unit Tests</a></li>
+<li><a href="#Node.js-and-Npm">Node.js and Npm</a></li>
+<li><a href="#Jasmine-Configuration">Jasmine Configuration</a></li>
+<li><a href="#Gulp-Configuration">Gulp Configuration</a></li>
+<li><a href="#Install-Eslint-Globally">Install Eslint Globally</a></li>
+<li><a href="#Generating-Documentation-With-Jsdoc">Generating Documentation With Jsdoc</a></li>
+<li><a href="#Running-The-Build-Tool">Running The Build Tool</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Credits and Acknowledgement</h2><p>I give thanks to the following:</p>
+<ul>
+<li>jonschlinkert, for <a href="https://gist.github.com/jonschlinkert/ac5d8122bfaaa394f896#sub-sub-heading-2/" title="TOC in Markdown - jonschlinkert">table of contents markdown code</a>;</li>
+<li>Udacity, for providing <a href="https://www.diigo.com/outliner/fjslyn/Udacity-Restaurant-Reviews-App-(project-%235)?key=zqiopam1yz" title="Udacity's resources for this project">various resources</a> to help complete this project, as well as all colaborators mentionedon the resources <a href="https://www.diigo.com/outliner/fjslyn/Udacity-Restaurant-Reviews-App-(project-%235)?key=zqiopam1yz" title="Udacity's resources for this project">link</a>, specially Mathew Cranford<a href="https://matthewcranford.com/restaurant-reviews-app-walkthrough-part-1-map-api/">¹</a><a href="https://matthewcranford.com/restaurant-reviews-app-walkthrough-part-2-responsiveness/">²</a><a href="https://matthewcranford.com/restaurant-reviews-app-walkthrough-part-3-accessibility/">³</a><a href="https://matthewcranford.com/restaurant-reviews-app-walkthrough-part-4-service-workers/">⁴</a>;</li>
+</ul>
+<h2>How to Run the App</h2><p>Instructions for running this project.</p>
+<h2>If cloned from the build-basic directory</h2><p>This Section is written with the expectation that you already have installed globally node.js, gulp, browsersync and eslint</p>
+<p>Create a new directory to be your project's repo, at your <code>home directory</code> and clone <code>build-basic</code> into it:</p>
+<pre class="prettyprint source"><code>$ mkdir &lt;new-project>
+$ git clone build-basic &lt;new-project></code></pre><p>Update and Check Outdated npm packages, by running <a href="https://docs.npmjs.com/getting-started/updating-local-packages" title="Update Npm Packages">these commands</a> on the directory where the <code>package.json</code> file is located:</p>
+<pre class="prettyprint source"><code>$ npm update
+$ npm outdated</code></pre><p>Create a new remote repository on <a href="https://github.com/" title="Github">Github</a>, then change the <new-project> project's remote repo from the <code>build-basic</code> repo to the  repo you just created on Github.</p>
+<p>To change:</p>
+<pre class="prettyprint source"><code>$ git remote set-url git remote set-url origin git@github.com:USERNAME/REPOSITORY.git</code></pre><p>Or simply unset the remote for the <new-project> project repo:</p>
+<pre class="prettyprint source"><code>$ git remote remove origin</code></pre><p>Check if the remote repo has been properly set (or unset):</p>
+<pre class="prettyprint source"><code>$ git remote -v</code></pre><p>But, if creating a new project from scratch, follow the steps described in the next section.</p>
+<h2>Building The Project With Node.js and a Building Tool</h2><h4>Unit Tests</h4><p>The testing framework used for building this project was <em>Jasmine</em>.</p>
+<p>In order for this framework to read the html DOM, the contents of the <code>index.html</code> file's <code>&lt;body&gt;</code> tag had to be added into the <code>SpecRunner.html</code> file's body, with the <code>&lt;script&gt;</code> tag for running the <code>spec/spec.js</code> file in the end. Also, The <code>&lt;head&gt;</code> tag will contain the <code>&lt;link&gt;</code> tag for the <code>css/app.css</code> file.</p>
+<p>The content of the SpecRunner file should be something like this:</p>
+<pre class="prettyprint source"><code>```
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;meta charset=&quot;utf-8&quot;>
+  &lt;title>Jasmine Spec Runner v3.1.0&lt;/title>
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;css/app.css&quot;>
+
+  &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href=&quot;node_modules/jasmine-core/images/jasmine_favicon.png&quot;>
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;node_modules/jasmine-core/lib/jasmine-core/jasmine.css&quot;>
+
+  &lt;script src=&quot;node_modules/jasmine-core/lib/jasmine-core/jasmine.js&quot;>&lt;/script>
+  &lt;script src=&quot;node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js&quot;>&lt;/script>
+  &lt;script src=&quot;node_modules/jasmine-core/lib/jasmine-core/boot.js&quot;>&lt;/script>
+
+
+&lt;/head>
+
+&lt;body>
+    &lt;main>
+        &quot;HTML code here&quot;
+    &lt;/main>
+
+  &lt;!-- include source files here... -->
+  &lt;script src=&quot;js/app.js&quot;>&lt;/script>
+
+  &lt;!-- include spec files here... -->
+  &lt;script src=&quot;spec/spec.js&quot;>&lt;/script>
+&lt;/body>
+&lt;/html>
+```</code></pre><h4>Node.js and Npm</h4><p>Install <a href="https://nodejs.org/en/" title="Node.js">Node.js</a>.</p>
+<p>Install the latest version of <a href="https://www.npmjs.com/get-npm" title="Npm">npm</a> via command line:</p>
+<pre class="prettyprint source"><code>$ npm install npm@latest -g</code></pre><p>To initialize a node.js project, run this at the top-level directory of your project:</p>
+<pre class="prettyprint source"><code>$ npm init</code></pre><p>Answer the questions that pop up on the terminal, to create a basic <code>package.json</code> file.</p>
+<p>Install the task runner <a href="https://github.com/gulpjs/gulp/blob/v3.9.1/docs/getting-started.md" title="Gulp">Gulp.js</a> globally:</p>
+<pre class="prettyprint source"><code>$ npm install --global gulp-cli</code></pre><p>Install <a href="https://browsersync.io/" title="Browsersync (Global)">Browsersync</a> globally:</p>
+<pre class="prettyprint source"><code>$ npm install -g browser-sync</code></pre><p> Install locally the npm packages I'm going to use for this project (including the Gulp package), in your devDependencies:</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/gulp" title="Gulp on npm">gulp</a></li>
+<li><a href="https://www.npmjs.com/package/browser-sync" title="Browsersync (Local)">browsersync</a> (to create a server and reload the browser automaticaly)</li>
+<li><a href="https://jasmine.github.io/pages/getting_started.html" title="Jasmine">jasmine</a> (tester)</li>
+<li><a href="https://www.npmjs.com/package/gulp-jsdoc3" title="gulp-jsdoc">gulp-jsdoc3</a> (Generates Documentation)</li>
+</ul>
+<pre class="prettyprint source"><code>$ npm --install --save-dev gulp browser-sync jasmine</code></pre><h4>Jasmine Configuration</h4><p>To create a <code>spec</code> directory, containing a <code>suport</code> directory, with a <code>jasmine.json</code> file inside, for general configuration purporses, run at the top level directory of your project:</p>
+<pre class="prettyprint source"><code>$ node node_modules/jasmine/bin/jasmine init</code></pre><p>Create a <code>spec.js</code> file, at the top level directory of your project, for your test suites.</p>
+<p>Create a <code>SpecRunner.html</code>, at the top level directory of your project, for displaying the tests results on your browser.</p>
+<h4>Gulp Configuration</h4><p>Create a <code>gulpfile.js</code> at the top level of your project directory, to require packages and configure tasks.</p>
+<p>Open the <code>gulpfile.js</code> in your IDE.</p>
+<p>Require the Gulp and Browsersync packages.</p>
+<pre class="prettyprint source"><code>const gulp = require('gulp');
+const bSrc = require('browser-sync').create();
+const bSpecRunner = require('browser-sync').create();
+const bDocumentation = require('browser-sync').create();
+const jsdoc = require('gulp-jsdoc3');</code></pre><p>Then set it's default task to watch the js files in the <code>src</code> directory:</p>
+<p>Create the <code>default</code> task, with servers for the the <code>index.html</code>, the <code>SpecRunner.html</code> and the <code>/docs/gen/index.html</code> files, and creates the <code>jsdoc</code> task, for generating documentation:</p>
+<pre class="prettyprint source"><code>gulp.task('default', ['jsdoc'], () => {
+    // Reloads browser
+    gulp.watch(&quot;*.html&quot;).on('change', bSrc.reload);
+    gulp.watch(&quot;js/*.js&quot;).on('change', bSrc.reload);
+    gulp.watch(&quot;*.html&quot;).on('change', bSpecRunner.reload);
+    gulp.watch(&quot;js/*.js&quot;).on('change', bSpecRunner.reload);
+    gulp.watch('spec/spec.js').on('change', bSpecRunner.reload);
+    gulp.watch(&quot;js/*.js&quot;).on('change', bDocumentation.reload);
+    gulp.watch('spec/spec.js').on('change', bDocumentation.reload);
+
+    /** @tutorial https://scotch.io/tutorials/prevent-errors-from-crashing-gulp-watch*/
+    // when saving a watched file, the `jsdoc` task takes needs a second save, after a few seconds, to update the documentation
+    gulp.watch(&quot;js/*.js&quot;, ['jsdoc']);
+    gulp.watch('spec/spec.js', ['jsdoc']);
+
+    // Servers
+    bSrc.init({
+        server: &quot;./&quot;,
+        port: 3000,
+        index: &quot;index.html&quot;,
+        ui: false
+
+    });
+    bSpecRunner.init({
+        server: &quot;./&quot;,
+        port: 8080,
+        index: &quot;SpecRunner.html&quot;,
+        ui: false
+    });
+    bDocumentation.init({
+        server: &quot;./docs/gen&quot;,
+        port: 8080,
+        index: &quot;index.html&quot;,
+        ui: false
+    });
+});
+
+// Generates documentation on the `doc` directory
+gulp.task('jsdoc', function (cb) {
+    gulp.src(['./README.md', './js/**/*.js', './spec/**/*.js'], {read: false})
+        .pipe(jsdoc(cb));
+});</code></pre><p>If you want to creat a <code>dist</code> task, for copying all src files to a <code>dist</code> directory upon project completion:</p>
+<pre class="prettyprint source"><code>// copies all files from the `src` directory, as well as the README.md file, to a `dist` folder
+gulp.task('dist', function() {
+    gulp.src(['./src/**/*','./*.md'])
+        .pipe(gulp.dest('./dist'));
+});
+</code></pre><p>If you want to use SASS:</p>
+<p>Run on terminal:</p>
+<pre class="prettyprint source"><code>$ npm install --save-dev gulp-sass gulp-autoprefixer</code></pre><p>And modify the <code>gulpfile.js</code></p>
+<pre class="prettyprint source"><code>const gulp = require('gulp');
+const bSrc = require('browser-sync').create();
+const bSpecRunner = require('browser-sync').create();
+const sass = require('gulp-sass');
+const autoprefixer('gulp-autoprefixer');
+
+//If uses sass:
+gulp.task('sass', function () {
+    return gulp.src('./sass/**/*.scss')
+        .pipe(sass.sync().on('error', sass.logError))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions']
+        }))
+        .pipe(gulp.dest('./css'));
+});
+
+gulp.task('sass:watch', function () {
+    gulp.watch('./sass/**/*.scss', ['sass']);
+});</code></pre><p>Also, modify the first line of the default task, adding it the task 'sass:watch':</p>
+<pre class="prettyprint source"><code>gulp.task('default', ['sass:watch'], () => {</code></pre><h4>Install Eslint Globally</h4><p><a href="https://www.npmjs.com/package/eslint" title="Eslint">Eslint</a></p>
+<pre class="prettyprint source"><code>$ npm install -g eslint</code></pre><p>Then move to the <code>home directory</code> for your projects and run this command:</p>
+<pre class="prettyprint source"><code>$ eslint --init</code></pre><p>Add the enviroments you want to lint. I use this configuration on the section <code>&quot;env&quot;</code>, of your <code>.eslintrc.json</code> file, on the <code>home directory</code>, or on the top level of you project directory</p>
+<p>I use this configuration on my <code>home directory</code>s <code>.eslintrc.json</code> file:</p>
+<pre class="prettyprint source"><code>{
+    &quot;env&quot;: {
+        &quot;browser&quot;: true,
+        &quot;es6&quot;: true,
+        &quot;jasmine&quot;: true,
+        &quot;amd&quot;: true,
+        &quot;jquery&quot;: true,
+        &quot;node&quot;: true
+    },
+}</code></pre><p>It will create an <code>eslintrc.json</code> file, which will contain the configurations for all your projects located at the <code>home directory</code>.</p>
+<p>If you want to create special eslint configurations for a project, just move to that project's directory run <code>eslint --init</code>, to configure a <code>eslintrc.json</code> file there.</p>
+<h4>Generating Documentation With Jsdoc</h4><p>The comments you wish jsdoc to parse should start with <code>/**</code></p>
+<p>use <a href="http://usejsdoc.org/index.html#block-tags" title="Jsdoc Block Tags">jsdoc tags</a> to display each information within your comments:</p>
+<pre class="prettyprint source"><code>/**
+ * @file This file has tests for the app.js file.
+ *
+ * @author Ricardo Bossan &lt;ricardobossan@gmail.com>
+ */</code></pre><p>If you wish to generate documentation manually, for each file, the documentation will be placed on an <code>out</code> directory, which will be created on the folder where is run the commands:</p>
+<pre class="prettyprint source"><code>cd &lt;./file-path/
+jsdoc &lt;./file-path/file-name></code></pre><h4>Running The Build Tool</h4><p>Run the <code>default</code> task, to automatically reload the browser window when a js file is modified (upon save). On the command line, enter:</p>
+<pre class="prettyprint source"><code>$ gulp</code></pre><p>Generate documentation for the project on the <code>doc</code> directory, on the top level directory of the project:</p>
+<pre class="prettyprint source"><code>$ gulp jsdoc</code></pre><!-- References --></article>
     </section>
 
 
@@ -152,7 +323,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on October 25th 2018, 6:59:57 am
+		on October 25th 2018, 9:13:00 am
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

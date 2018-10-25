@@ -1,7 +1,9 @@
 /**
  * @member Todos
  * @todo make the WebApp responsive
- * @todo  mobile first!
+ * @todo  	mobile first!
+ * @todo  			use flex-wrap and margin auto auto so restaurants will display only the number of restaurantes that it's view can allow on the same row, no need for breakpoints!
+ * @todo  			make images responsive with figure and all those sizes (look how I did the Portfolio Site Project)
  * @todo make it accessible
  * @todo make service workers
  * @todo update my build-basic project acconrdingly
