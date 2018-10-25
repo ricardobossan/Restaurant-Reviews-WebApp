@@ -15,14 +15,10 @@
 
 ## Credits and Acknowledgement
 
-Favicon icon obtained at: ``https://www.favicon-generator.org/``
+I give thanks to the following:
 
-Logic for the `myTimer()` function, in `app.js`file, obtained at: ``https://teamtreehouse.com/community/i-dont-understand-one-piece-of-code``
-
-I would like to give my sincere thanks to my Udacity's mentor Jai, for the support and encouragement.
-
-I Also would like to express my gratitude to the following, for testing my code's usability and bringing me suggestions for improving it: My parents Harley and Deise Bossan, my girlfriend Amanda Schwarz, my friends Sergio Schwarz, Aluisio Maia, Oyama Scharra, Farney Paixao and Rafael Montenegro.
-
+ * Udacity, for providing [various resources](14) to help complete this project, as well as all colaborators mentionedon the resources [link](14);
+ * jonschlinkert, for table of contents markdown code;
 
 ## How to Run the App
 
@@ -362,3 +358,5 @@ $ gulp jsdoc
 [10]: https://browsersync.io/ "Browsersync (Global)"
 [11]: http://usejsdoc.org/index.html#block-tags "Jsdoc Block Tags"
 [12]: https://www.npmjs.com/package/gulp-jsdoc3 "gulp-jsdoc"
+[13]: https://gist.github.com/jonschlinkert/ac5d8122bfaaa394f896#sub-sub-heading-2
+[14]:
