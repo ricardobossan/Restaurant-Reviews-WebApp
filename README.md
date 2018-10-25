@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-* [How to Run the App](#how)
+* [How to Run the App](#how-to-run-the-app)
 
 ## Credits and Acknowledgement
 
