@@ -1,13 +1,24 @@
 /**
  * @member Todos
- * @todo ==> make it accessible
- * @todo make service workers
+ * @todo ==> make service worker
  * @todo OK create and enter API keys
  * @todo OK configure build tools
  * @todo OK make the WebApp responsive
  * @todo  OK mobile first!
  * @Todo 		OK use flex-wrap and margin auto auto so restaurants will display only the number of restaurantes that it's view can allow on the same row, no need for breakpoints!
+ * @todo make it accessible
  */
+
+/**
+ * Registers service worker
+ */
+navigator.serviceWorker
+	.register('sw.js').then(reg => console.log('Service Worker: registered', reg)
+	)
+	.catch((err) => {
+		console.log(err);
+	});
+
 
 let restaurants,
 	neighborhoods,
