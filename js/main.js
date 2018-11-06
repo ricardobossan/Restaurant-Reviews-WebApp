@@ -1,6 +1,9 @@
 /**
  * @member Todos
  * @todo ==> (Review) Accessbility: add ARIA roles and labels
+ *	index.html's map:
+ *		Term for the map: ["Graphical Document"](https://www.w3.org/TR/wai-aria-1.1/#role_definitions)
+ *		Role for "Graphical Document": ["Figure"](https://www.w3.org/TR/wai-aria-1.1/#figure)
  * @todo OK create and enter API keys
  * @todo OK configure build tools
  * @todo OK make the WebApp responsive
