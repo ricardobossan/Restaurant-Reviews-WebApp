@@ -1,20 +1,20 @@
 /**
  * @member Todos
- * @todo ==> (Review) Accessbility: add ARIA roles and labels
- *	OK index.html's map:
- *		OK Term for the map: ["Graphical Document"](https://www.w3.org/TR/wai-aria-1.1/#role_definitions)
- *		OK Role for "Graphical Document": ["Figure"](https://www.w3.org/TR/wai-aria-1.1/#figure)
- *	restaurant.html:
- *		aria role and aria-label for map
- *		aria-label for breadcrumb
  * @todo OK create and enter API keys
  * @todo OK configure build tools
  * @todo OK make the WebApp responsive
- * @todo  OK mobile first!
+ * @todo OK mobile first!
  * @Todo 		OK use flex-wrap and margin auto auto so restaurants will display only the number of restaurantes that it's view can allow on the same row, no need for breakpoints!
  * @todo OK make service worker
  * @todo OK (Review) Accessbility: add the 'alt' attribute to images
  * @todo OK (Review) Accessbility: fix headings
+ * @todo OK (Review) Accessbility: add ARIA roles and labels
+ *	OK index.html's map:
+ *		OK Term for the map: ["Graphical Document"](https://www.w3.org/TR/wai-aria-1.1/#role_definitions)
+ *		OK Role for "Graphical Document": ["Figure"](https://www.w3.org/TR/wai-aria-1.1/#figure)
+ *	OK restaurant.html:
+ *		OK aria role and aria-label for map
+ *		OK aria-label for breadcrumb
  */
 
 /**
