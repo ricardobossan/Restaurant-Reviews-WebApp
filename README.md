@@ -1,17 +1,16 @@
 # Project: Restaurant Review App
 
 ## Table of Contents
-
+* [Credits and Acknowledgement](#credits-and-acknowledgement)
+* [The App](#the-app)
 * [How to Run the App](#how-to-run-the-app)
-	* [If Cloned from the build-basic directory](#if-cloned-from-the-build-basic-directory)
-	* [Building The Project With Node.js and a Building Tool](#Building-The-Project-With-Node.js-and-a-Building-Tool)
-		* [Unit Tests](#Unit-Tests)
-		* [Node.js and Npm](#Node.js-and-Npm)
-		* [Jasmine Configuration](#Jasmine-Configuration)
-		* [Gulp Configuration](#Gulp-Configuration)
-		* [Install Eslint Globally](#Install-Eslint-Globally)
-		* [Generating Documentation With Jsdoc](#Generating-Documentation-With-Jsdoc)
-		* [Running The Build Tool](#Running-The-Build-Tool)
+* [How to Build the App](#how-to-build-the-app)
+	* [Node.js and Npm](#Node.js-and-Npm)
+	* [Gulp Configuration](#Gulp-Configuration)
+	* [Install Eslint Globally](#Install-Eslint-Globally)
+	* [Generating Documentation With Jsdoc](#Generating-Documentation-With-Jsdoc)
+	* [Running The Build Tool](#Running-The-Build-Tool)
+* [Accessbility](#accessbility)
 
 ## Credits and Acknowledgement
 
@@ -20,92 +19,15 @@ I give thanks to the following:
  * jonschlinkert, for [table of contents markdown code][13];
  * Udacity, for providing [various resources][14] to help complete this project, as well as all colaborators mentionedon the resources [link][14], specially Mathew Cranford[¹][15][²][16][³][17][⁴][18];
 
+## The App
+
+Click or Tab your way through the restaurant reviews, either manually or filtering the results by neighborhoods and cuisines.
+
 ## How to Run the App
 
-Instructions for running this project.
+On Nodejs CLI, `CD` into the root directory for this project and run the ``gulp`` command.
 
-## If cloned from the build-basic directory
-
-This Section is written with the expectation that you already have installed globally node.js, gulp, browsersync and eslint
-
-Create a new directory to be your project's repo, at your `home directory` and clone `build-basic` into it:
-
-```
-$ mkdir <new-project>
-$ git clone build-basic <new-project>
-```
-
-Update and Check Outdated npm packages, by running [these commands][8] on the directory where the `package.json` file is located:
-
-```
-$ npm update
-$ npm outdated
-```
-
-Create a new remote repository on [Github][9], then change the <new-project> project's remote repo from the `build-basic` repo to the  repo you just created on Github.
-
-To change:
-
-```
-$ git remote set-url git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
-```
-
-Or simply unset the remote for the <new-project> project repo:
-
-```
-$ git remote remove origin
-```
-
-Check if the remote repo has been properly set (or unset):
-
-```
-$ git remote -v
-```
-
-But, if creating a new project from scratch, follow the steps described in the next section.
-
-## Building The Project With Node.js and a Building Tool
-
-#### Unit Tests
-
-The testing framework used for building this project was _Jasmine_.
-
-In order for this framework to read the html DOM, the contents of the `index.html` file's `<body>` tag had to be added into the `SpecRunner.html` file's body, with the `<script>` tag for running the `spec/spec.js` file in the end. Also, The `<head>` tag will contain the `<link>` tag for the `css/app.css` file.
-
-The content of the SpecRunner file should be something like this:
-
-	```
-	<!DOCTYPE html>
-	<html>
-	<head>
-	  <meta charset="utf-8">
-	  <title>Jasmine Spec Runner v3.1.0</title>
-	  <link rel="stylesheet" href="css/app.css">
-
-	  <link rel="shortcut icon" type="image/png" href="node_modules/jasmine-core/images/jasmine_favicon.png">
-	  <link rel="stylesheet" href="node_modules/jasmine-core/lib/jasmine-core/jasmine.css">
-
-	  <script src="node_modules/jasmine-core/lib/jasmine-core/jasmine.js"></script>
-	  <script src="node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
-	  <script src="node_modules/jasmine-core/lib/jasmine-core/boot.js"></script>
-
-
-	</head>
-
-	<body>
-		<main>
-			"HTML code here"
-		</main>
-
-	  <!-- include source files here... -->
-	  <script src="js/app.js"></script>
-
-	  <!-- include spec files here... -->
-	  <script src="spec/spec.js"></script>
-	</body>
-	</html>
-	```
-
+## How to Build the App
 
 #### Node.js and Npm
 
@@ -147,18 +69,6 @@ $ npm install -g browser-sync
 $ npm --install --save-dev gulp browser-sync jasmine
 ```
 
-#### Jasmine Configuration
-
-To create a `spec` directory, containing a `suport` directory, with a `jasmine.json` file inside, for general configuration purporses, run at the top level directory of your project:
-
-```
-$ node node_modules/jasmine/bin/jasmine init
-```
-
-Create a `spec.js` file, at the top level directory of your project, for your test suites.
-
-Create a `SpecRunner.html`, at the top level directory of your project, for displaying the tests results on your browser.
-
 #### Gulp Configuration
 
 Create a `gulpfile.js` at the top level of your project directory, to require packages and configure tasks.
@@ -170,58 +80,65 @@ Require the Gulp and Browsersync packages.
 ```
 const gulp = require('gulp');
 const bSrc = require('browser-sync').create();
-const bSpecRunner = require('browser-sync').create();
 const bDocumentation = require('browser-sync').create();
 const jsdoc = require('gulp-jsdoc3');
 ```
 
 Then set it's default task to watch the js files in the `src` directory:
 
-Create the `default` task, with servers for the the `index.html`, the `SpecRunner.html` and the `/docs/gen/index.html` files, and creates the `jsdoc` task, for generating documentation:
+Create the `default` task, with servers for the the `index.html`, and the `/docs/gen/index.html` files, and creates the `jsdoc` task, for generating documentation:
 
 ```
-gulp.task('default', ['jsdoc'], () => {
-	// Reloads browser
-	gulp.watch("*.html").on('change', bSrc.reload);
-	gulp.watch("js/*.js").on('change', bSrc.reload);
-	gulp.watch("*.html").on('change', bSpecRunner.reload);
-	gulp.watch("js/*.js").on('change', bSpecRunner.reload);
-	gulp.watch('spec/spec.js').on('change', bSpecRunner.reload);
-	gulp.watch("js/*.js").on('change', bDocumentation.reload);
-	gulp.watch('spec/spec.js').on('change', bDocumentation.reload);
+/**
+ * @file gulpefile.js. Task runner for JS.
+ * @desc A task runner for JS
+ */
 
-	/** @tutorial https://scotch.io/tutorials/prevent-errors-from-crashing-gulp-watch*/
-	// when saving a watched file, the `jsdoc` task takes needs a second save, after a few seconds, to update the documentation
-	gulp.watch("js/*.js", ['jsdoc']);
-	gulp.watch('spec/spec.js', ['jsdoc']);
+/**
+ * Requires the task runner's dependencies.
+ * @requires
+ */
+const gulp = require('gulp');
+const jsdoc = require('gulp-jsdoc3');
+const bSync = require('browser-sync').create();
+const bSyncDoc = require('browser-sync').create();
 
-	// Servers
-	bSrc.init({
+/**
+ * Reloads the browser, upon saving changes in the watched files.
+ */
+gulp.task('default', () => {
+	gulp.watch("js/*.js").on('change', bSync.reload);
+	gulp.watch("css/*.css").on('change', bSync.reload);
+
+	bSync.init({
 		server: "./",
-		port: 3000,
+		port: 8000,
 		index: "index.html",
 		ui: false
+	});
 
-	});
-	bSpecRunner.init({
-		server: "./",
-		port: 8080,
-		index: "SpecRunner.html",
-		ui: false
-	});
-	bDocumentation.init({
+});
+
+/*
+ * Generates documentation on the `doc` directory.
+ */
+gulp.task('jsdoc', (cb) => {
+	gulp.src(['./README.md', './js/*.js'], {read: false})
+		.pipe(jsdoc(cb));
+});
+
+/*
+ * Updates full documentation GUI, initiates it's server and reloads it on the browser.
+ */
+gulp.task('jsdoc-serve', () => {
+	gulp.watch("js/*.js", ["jsdoc"]).on('change', bSyncDoc.reload);
+	bSyncDoc.init({
 		server: "./docs/gen",
 		port: 8080,
 		index: "index.html",
 		ui: false
-	});
-});
-
-// Generates documentation on the `doc` directory
-gulp.task('jsdoc', function (cb) {
-	gulp.src(['./README.md', './js/**/*.js', './spec/**/*.js'], {read: false})
-		.pipe(jsdoc(cb));
-});
+	});	
+})
 ```
 
 If you want to creat a `dist` task, for copying all src files to a `dist` directory upon project completion:
@@ -323,7 +240,7 @@ use [jsdoc tags][11] to display each information within your comments:
  */
 ```
 
-If you wish to generate documentation manually, for each file, the documentation will be placed on an `out` directory, which will be created on the folder where is run the commands:
+If you wish to generate documentation manually, for each file, the documentation will be placed on an `out` directory, which will be created on the folder where are run the commands:
 
 ```
 cd <./file-path/
@@ -343,6 +260,10 @@ Generate documentation for the project on the `doc` directory, on the top level 
 ```
 $ gulp jsdoc
 ```
+
+## Accessbility
+
+This software was implemented with accessbility in mind, following the [WebAim][19], [WCAG][20] and [ARIA][21] standarts.
 
 <!-- References -->
 
@@ -364,3 +285,6 @@ $ gulp jsdoc
 [16]:https://matthewcranford.com/restaurant-reviews-app-walkthrough-part-2-responsiveness/
 [17]:https://matthewcranford.com/restaurant-reviews-app-walkthrough-part-3-accessibility/
 [18]:https://matthewcranford.com/restaurant-reviews-app-walkthrough-part-4-service-workers/
+[19]:https://webaim.org/standards/wcag/checklist
+[20]:https://www.w3.org/TR/WCAG20/
+[21]:https://www.w3.org/TR/wai-aria-1.1/
