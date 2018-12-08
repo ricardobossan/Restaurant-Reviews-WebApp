@@ -4,22 +4,21 @@
  */
 
 /**
- * @desc Requires the task runner's dependencies.
+ * Requires the task runner's dependencies.
  * @requires
  */
 const gulp = require('gulp');
 const jsdoc = require('gulp-jsdoc3');
 const bSync = require('browser-sync').create();
-/*const bSyncDoc = require('browser-sync').create();
-*/
+const bSyncDoc = require('browser-sync').create();
+
 /**
- * @desc Reloads the browser, upon saving changes in the watched files.
+ * Reloads the browser, upon saving changes in the watched files.
  */
 gulp.task('default', () => {
 	gulp.watch("js/*.js").on('change', bSync.reload);
 	gulp.watch("css/*.css").on('change', bSync.reload);
-/*	gulp.watch("js/*.js", ["jsdoc"]).on('change', bSyncDoc.reload);
-*/
+
 	bSync.init({
 		server: "./",
 		port: 8000,
@@ -27,20 +26,25 @@ gulp.task('default', () => {
 		ui: false
 	});
 
-/*	bSyncDoc.init({
-		server: "./docs/gen",
-		port: 8080,
-		index: "index.html",
-		ui: false
-	});
-*/
 });
 
-
 /*
- * @desc Generates documentation on the `doc` directory.
+ * Generates documentation on the `doc` directory.
  */
 gulp.task('jsdoc', (cb) => {
 	gulp.src(['./README.md', './js/*.js'], {read: false})
 		.pipe(jsdoc(cb));
 });
+
+/*
+ * Updates full documentation GUI, initiates it's server and reloads it on the browser.
+ */
+gulp.task('jsdoc-serve', () => {
+	gulp.watch("js/*.js", ["jsdoc"]).on('change', bSyncDoc.reload);
+	bSyncDoc.init({
+		server: "./docs/gen",
+		port: 8080,
+		index: "index.html",
+		ui: false
+	});	
+})
