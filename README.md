@@ -291,4 +291,4 @@ This software was implemented with accessbility in mind, following the [WebAim][
 [19]:https://webaim.org/standards/wcag/checklist
 [20]:https://www.w3.org/TR/WCAG20/
 [21]:https://www.w3.org/TR/wai-aria-1.1/
-[22]:C:\Users\ricar\mws-restaurant-stage-1\img\app.png
+[22]:/img/app.png
