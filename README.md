@@ -1,5 +1,7 @@
 # Project: Restaurant Review App
 
+![App view][22]
+
 ## Table of Contents
 * [Credits and Acknowledgement](#credits-and-acknowledgement)
 * [The App](#the-app)
@@ -132,6 +134,7 @@ gulp.task('jsdoc', (cb) => {
  */
 gulp.task('jsdoc-serve', () => {
 	gulp.watch("js/*.js", ["jsdoc"]).on('change', bSyncDoc.reload);
+	gulp.watch("README.md", ["jsdoc"]).on('change', bSyncDoc.reload);
 	bSyncDoc.init({
 		server: "./docs/gen",
 		port: 8080,
@@ -288,3 +291,4 @@ This software was implemented with accessbility in mind, following the [WebAim][
 [19]:https://webaim.org/standards/wcag/checklist
 [20]:https://www.w3.org/TR/WCAG20/
 [21]:https://www.w3.org/TR/wai-aria-1.1/
+[22]:C:\Users\ricar\mws-restaurant-stage-1\img\app.png

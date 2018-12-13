@@ -41,6 +41,7 @@ gulp.task('jsdoc', (cb) => {
  */
 gulp.task('jsdoc-serve', () => {
 	gulp.watch("js/*.js", ["jsdoc"]).on('change', bSyncDoc.reload);
+	gulp.watch("README.md", ["jsdoc"]).on('change', bSyncDoc.reload);
 	bSyncDoc.init({
 		server: "./docs/gen",
 		port: 8080,
