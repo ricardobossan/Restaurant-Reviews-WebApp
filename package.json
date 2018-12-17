@@ -4,7 +4,7 @@
   "description": "WebApp for reviewing restaurants. Requirement for completion of the Front-End Web Developer Nanodegree, at Udacity",
   "main": "main.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "NODE_ENV=production node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
