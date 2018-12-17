@@ -4,6 +4,7 @@
   "description": "WebApp for reviewing restaurants. Requirement for completion of the Front-End Web Developer Nanodegree, at Udacity",
   "main": "main.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,9 +17,15 @@
     "url": "https://github.com/ricardobossan/Restaurante-Reviews-WebApp/issues"
   },
   "homepage": "https://github.com/ricardobossan/Restaurante-Reviews-WebApp#readme",
+  "engine": {
+    "node": "10.13.0"
+  },
   "devDependencies": {
     "browser-sync": "^2.26.3",
     "gulp": "^3.9.1",
     "gulp-jsdoc3": "^2.0.0"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
   }
 }
