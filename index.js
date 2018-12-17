@@ -1,7 +1,6 @@
 const express = require('express')
 const path = require('path')
-const PORT = process.env.PORT
-console.log(PORT)
+const PORT = process.env.PORT || 8000
 
 express()
   .use(express.static(path.join(__dirname, '')))
