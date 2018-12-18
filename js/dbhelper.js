@@ -11,7 +11,7 @@ class DBHelper {
     const port = 5000 // Change this to your server port
 /*    return `http://localhost:${port}/data/restaurants.json`;
 */
-    return `$location.origin/data/restaurants.json`;
+    return `${location.origin}/data/restaurants.json`;
   }
 
   /**
