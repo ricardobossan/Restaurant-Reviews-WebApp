@@ -21,7 +21,7 @@ gulp.task('default', () => {
 
 	bSync.init({
 		server: "./",
-		port: 8009,
+		port: 8000,
 		index: "index.html",
 		ui: false
 	});
