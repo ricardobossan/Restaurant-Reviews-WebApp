@@ -8,9 +8,11 @@ class DBHelper {
    * Change this to restaurants.json file location on your server.
    */
   static get DATABASE_URL() {
+   if(location.hostname === "ricardobossan.com") {
+    return 'https://restaurant-review-webapp.herokuapp.com/data/restaurants.json'; // HACK TO MAKE IT WORK FOR NOW
+   } 
     return `${location.origin}/data/restaurants.json`;
-  }
-
+ }
   /**
    * Fetch all restaurants.
    */
